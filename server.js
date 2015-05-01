@@ -12,9 +12,12 @@ var http = require('http');
 // like the path and the query string
 var url =require('url');
 
-function start() {
+// we are extending the servers start function by passing in the router function as a param
+function start(router) {
 	function onRequest(request, response) {
 		console.log('request recieved');
+		var pathname = url.parse(request.url).pathname;
+		console.log("Request for pathname " + pathname + " recieved");
 		response.writeHead(200,{
 			'Content-Type': 'text/plain',
 
