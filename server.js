@@ -1,16 +1,19 @@
-var http = require('http');
-http.createServer(function(request,response){
-	response.writeHead(200,{
-		"Content-Type": 'text/plain'});
-	response.write('here is your server');
-	response.end();
+// var http = require('http');
+// http.createServer(function(request,response){
+// 	response.writeHead(200,{
+// 		"Content-Type": 'text/plain'});
+// 	response.write('here is your server');
+// 	response.end();
 
-}).listen(8080);
+// }).listen(8080);
 
 var http = require('http');
+// the url module can be used to extract differnt parts of the url
+// like the path and the query string
+var url =require('url');
 
 function start() {
-	function onRequest() {
+	function onRequest(request, response) {
 		console.log('request recieved');
 		response.writeHead(200,{
 			'Content-Type': 'text/plain',
