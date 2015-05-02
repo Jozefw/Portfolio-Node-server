@@ -3,6 +3,13 @@ var server = require('./server');
 
 // here router is a function
 var router = require('./router');
+var requestHandlers = require('requestHandlers');
 
-// here you are calling the start method on the server module and passing in the router module (with the route method) as a param
+var handle = {};
+handle["/"] = requestHandlers.start;
+handle["/start"] = requestHandlers.start;
+handle["upload"] = requestHandlers.upload;
+
+
+// here you are calling the start method on the server module and passing in the router module (with the route method)
 server.start(router.route);

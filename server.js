@@ -13,11 +13,13 @@ var http = require('http');
 var url =require('url');
 
 // we are extending the servers start function by passing in the router function as a param from our index router
-function start(routeParam) {
+// handle is being passed as the cb
+function start( routeParam, handle ) {
 	function onRequest(request, response) {
 		console.log('request recieved');
 		var pathname = url.parse(request.url).pathname;
-		routeParam(pathname);
+
+		routeParam( handle, pathname );
 		console.log("Request for pathname " + pathname + " recieved");
 		response.writeHead(200,{
 			'Content-Type': 'text/plain',
