@@ -4,4 +4,5 @@ var server = require('./server');
 // here router is a function
 var router = require('./router');
 
-server.start();
+// here you are calling the start method on the server module and passing in the router module (with the route method) as a param
+server.start(router.route);

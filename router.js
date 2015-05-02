@@ -1,4 +1,4 @@
-function router(pathname) {
-	console.log("Im going to rout to :" + pathname);
+function route(pathname) {
+	console.log("Im going to route to :" + pathname);
 }
-exports.router = router;
+exports.route = route;
